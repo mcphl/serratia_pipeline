@@ -29,5 +29,8 @@ task trimmomatic_task {
 		docker: "~{docker}"
 		memory: "~{memory} GB"
 		cpu: cpu
+		disks: "local-disk 100 SSD"
+		preemptible: 0
+		maxRetries: 3
 	}
 }

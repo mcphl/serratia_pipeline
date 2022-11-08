@@ -20,6 +20,9 @@ task busco_task{
 		docker: "~{docker}"
 		cpu: cpu
 		memory: "~{memory} GB"
+		disks: "local-disk 100 SSD"
+		preemptible: 0
+		maxRetries: 3
 	}
 	output{
 		File busco_report = "~{base}/short_summary.specific.bacteria_odb10.~{base}.txt"

@@ -3,7 +3,7 @@ version 1.0
 
 task ragtag_task{
 	input{
-		String docker = "adash/ragtag:latest"
+		String docker = "mcphl/ragtag"
 		Int cpu = 4
 		Int memory = 8
 
@@ -19,6 +19,9 @@ task ragtag_task{
 		docker: "~{docker}"
 		cpu: cpu
 		memory: "~{memory} GB"
+		disks: "local-disk 100 SSD"
+		preemptible: 0
+		maxRetries: 3
 	}
 	output{
 		File ragtag_assembly = "ragtag_output/ragtag.scaffold.fasta"

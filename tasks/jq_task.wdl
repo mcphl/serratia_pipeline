@@ -19,6 +19,9 @@ task jq_task{
 		docker: "~{docker}"
 		cpu: cpu
 		memory: "~{memory} GB"
+		disks: "local-disk 100 SSD"
+		preemptible: 0
+		maxRetries: 3
 	}
 	output{
 		String out = read_string("OUT")
